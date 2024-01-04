@@ -1,9 +1,8 @@
 name: Build and Push Container to ECR using Access Keys
 
 on:
-  pull_request:
-    types: [opened, synchronize, reopened]
-
+  push
+    
 jobs:
   build_and_push:
     runs-on: ubuntu-latest
