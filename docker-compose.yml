@@ -6,5 +6,15 @@ services:
       dockerfile: Dockerfile.dev
     ports:
       - "3000:3000"
+    container_name: new-image-react
     volumes:
         - .:/app 
+  tests:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes:
+      - /app/node_modules
+      - .:/app
+    container_name: new-image-react-tests
+    command: ["npm", "run", "test"]
