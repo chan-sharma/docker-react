@@ -1,0 +1,10 @@
+name: test-docker-build
+run-name: ${{ github.actor }} is learning GitHub Actions
+on: [push]
+jobs:
+  check-bats-version:
+    runs-on: ubuntu-latest
+    steps:
+      - run: docker build -t chandan2021/docker-react -f Dockerfile.dev .
+      - run: docker run -e CI=true Chandan2021/docker-react npm run test
+    
