@@ -29,9 +29,9 @@ jobs:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          #role-to-assume:arn:aws:iam::062594673280:user/ci-cd-users
-          aws-access-key-id: AKIAQ5EXO5KAIS6OZ45I
-          aws-secret-access-key: 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
+          role-to-assume: arn:aws:iam::062594673280:role/git-workflow
+          #aws-access-key-id: AKIAQ5EXO5KAIS6OZ45I
+          #aws-secret-access-key: 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
           aws-region: ap-southeast-2
           #mask-aws-account-id: 'false'
 
