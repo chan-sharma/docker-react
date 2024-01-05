@@ -46,15 +46,15 @@ jobs:
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
           #IMAGE_TAG: ${{ github.sha }}
-          ECR_REPOSITORY: ${{ env.REPO_NAME }}
+          ECR_REPOSITORY: test-latest
           IMAGE_TAG: test-latest
         run: |
           # Build a docker container and
           # push it to ECR so that it can
           # be deployed to ECS.
-          docker build -t ${{ env.REPO_NAME }}:$IMAGE_TAG .
+          docker build -t test-latest:$IMAGE_TAG .
            echo "Pushing image to ECR..."
-          docker push ${{ env.REPO_NAME }}:$IMAGE_TAG:$IMAGE_TAG
+          docker push test-latest:$IMAGE_TAG
           echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
 
       
